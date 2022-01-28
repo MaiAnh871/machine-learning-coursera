@@ -1,4 +1,4 @@
-%% Initialize
+%% Initialize 
 data = load('ex1data2.txt'); % read comma separated data
 X = data(:, 1:2);
 y = data(:, 3);
