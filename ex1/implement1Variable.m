@@ -79,3 +79,6 @@ hold off;
 
 %% Scale features and set them to zero mean
 [X, mu, sigma] = featureNormalize(X);
+
+% Add intercept term to X
+X(:,1) = 1;
