@@ -38,3 +38,4 @@ test_theta = [-24; 0.2; 0.2];
 [cost, grad] = costFunction(test_theta, X, y);
 fprintf('\nCost at non-zero test theta: %f\n', cost);
 disp('Gradient at non-zero theta:'); disp(grad);
+ 
