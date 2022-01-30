@@ -27,10 +27,10 @@ hyp = sigmoid (z);
 % hyp: 100 x 1
 
 % y: 100 x 1
-red = -y' * log (hyp);
-blue = (1 - y') * log (1 - hyp);
+red = (-y)' * log(hyp);
+blue = (1 - y)' * log(1 - hyp);
 purple = red - blue;
-unregularizedCost = purple / m;
+J = purple / m;
 
 % theta(1) = 0;
 % regularizedTerm = theta' * theta;
