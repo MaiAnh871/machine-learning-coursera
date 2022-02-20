@@ -11,6 +11,17 @@ idx = findClosestCentroids(X, initial_centroids);
 fprintf('Closest centroids for the first 3 examples: %d %d %d', idx(1:3))
 
 %% 1.1.2 Computing centroid means
+max_iters = 10;
 % Compute means based on the closest centroids found in the previous part.
 centroids = computeCentroids(X, idx, K);
 fprintf('Centroids computed after initial finding of closest centroids: \n %f %f \n %f %f\n %f %f' , centroids');
+
+%% 1.2 K-means on example dataset
+% Run K-Means algorithm. The 'true' at the end tells our function to plot the progress of K-Means
+figure('visible','on'); hold on; 
+plotProgresskMeans(X, initial_centroids, initial_centroids, idx, K, 1); 
+xlabel('Press ENTER in command window to advance','FontWeight','bold','FontSize',14)
+[~, ~] = runkMeans(X, initial_centroids, max_iters, true);
+set(gcf,'visible','off'); hold off;
+
+%% 1.3 Random initialization
