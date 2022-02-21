@@ -23,3 +23,9 @@ drawLine(mu, mu + 1.5 * S(2,2) * U(:,2)', '-k', 'LineWidth', 2);
 hold off;
 
 fprintf('Top eigenvector U(:,1) = %f %f \n', U(1,1), U(2,1));
+
+%% 2.3 Dimensionality reduction with PCA
+% Project the data onto K = 1 dimension
+K = 1;
+Z = projectData(X_norm, U, K);
+fprintf('Projection of the first example: %f\n', Z(1));
