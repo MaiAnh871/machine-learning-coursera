@@ -29,3 +29,19 @@ fprintf('Top eigenvector U(:,1) = %f %f \n', U(1,1), U(2,1));
 K = 1;
 Z = projectData(X_norm, U, K);
 fprintf('Projection of the first example: %f\n', Z(1));
+
+%% 2.3.2 Reconstructing an approximation of the data
+X_rec  = recoverData(Z, U, K);
+fprintf('Approximation of the first example: %f %f\n', X_rec(1, 1), X_rec(1, 2));
+
+%% 2.3.3 Visualizing the projections
+%  Plot the normalized dataset (returned from pca)
+plot(X_norm(:, 1), X_norm(:, 2), 'bo');
+axis([-4 3 -4 3]); axis square
+%  Draw lines connecting the projected points to the original points
+hold on;
+plot(X_rec(:, 1), X_rec(:, 2), 'ro');
+for i = 1:size(X_norm, 1)
+    drawLine(X_norm(i,:), X_rec(i,:), '--k', 'LineWidth', 1);
+end
+hold off
